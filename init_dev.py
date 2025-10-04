@@ -26,10 +26,15 @@ def install():
 def setup_vim():
     os.system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
     vim_config = """\
+syntax on
+let g:airline_theme='onedark'
+colorscheme onedark
 call plug#begin()
 
 " List your plugins here
 Plug 'colors/onedark.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()"""
     with open(Path.home().joinpath(".vimrc").as_posix(), "w") as f:
